@@ -8,6 +8,20 @@
     messagingSenderId: "899372738982"
   };
   firebase.initializeApp(config);
+  displaySpammers(config);
+
+function displaySpammers(uni){
+	count=0;
+	firebase.database().ref('server/messenger').orderByChild('University').equalTo('Fast-NU').on("value", function(snapshot) {
+    snapshot.forEach(function(data) {
+    	showTemplate(data.val(), ++count);
+    	console.log(data.val());
+        });
+});
+}
 
 
-  
+function showTemplate(obj, count){
+	console.log(obj);
+
+}
