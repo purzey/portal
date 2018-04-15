@@ -21,24 +21,32 @@
   		}else{
   			output += '<td>N/A</td>';
   		}
-  		if(obj.price!=null){
-  			      output += '<td>Rs' + obj.price+ '</td>';
-  		}else{
-  			output += '<td>N/A</td>';
-  		}
   		if(obj.purPrice!=null){
   			output += '<td>Rs' + obj.purPrice+ '</td>';
   		}else{
   			output += '<td>N/A</td>';
   		}
+  		if(obj.price!=null){
+  			      output += '<td>Rs' + obj.price+ '</td>';
+  		}else{
+  			output += '<td>N/A</td>';
+  		}
+
   		if(obj.qty!=null){
   			output += '<td>' + obj.qty.value+ '</td>';
   		}else{
   			output += '<td>N/A</td>';
   		}
-
+  		output += '<td><a style = "font-size: 12px" href=\"#\" onClick=\"editItem(\''+ data.key +'\')\">edit</a> | <a style = "font-size: 12px; color:red" href=\"\">delete</a> </td>';
   		document.getElementById("addPrd").innerHTML += output;
 	  	console.log(output);
 	  	count++;
         });
 });
+
+
+
+function editItem(key){
+	console.log(key);
+	return;
+}
