@@ -22,6 +22,8 @@ function displaySpammers(uni){
 
 
 function showTemplate(obj, count){
+	
+
 	console.log(obj);
 
 }

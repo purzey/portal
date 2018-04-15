@@ -23,7 +23,6 @@
         min-height: 100px;
         padding-left: 20px;
       }
-      #editForm{display: none;}
     </style>
     <div id="newStyle"></div>
     <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom box-shadow">
@@ -31,8 +30,8 @@
         </h5>
             <nav class="my-2 my-md-0 mr-md-3">
         <a class="p-2 text-dark" href="#">Campus Ambassadors</a>
-        <a class="p-2 text-dark" href="../addinv">Add Inventory</a>
-        <a class="p-2 text-dark" href="">See Inventory</a>
+        <a class="p-2 text-dark" href="">Add Inventory</a>
+        <a class="p-2 text-dark" href="../inv">See Inventory</a>
       </nav>
       <a class="btn btn-outline-primary" href="#">See Stats</a>
     </div>
@@ -42,52 +41,34 @@
         <img class="mr-3" src="../logo2.png" alt="" width="60" height="60">
         <div class="lh-100">
           <h6 class="mb-0 text-white lh-100">Purzey</h6>
-          <small>All Inventory Items</small>
+          <small>Add an inventory item</small>
         </div>
       </div>
 
       <div class="my-3 p-3 bg-white rounded box-shadow">
         <h6 class="border-bottom border-gray pb-2 mb-0">Item Details</h6>
         <div id="newCustomer"></div>
-        <table class="table table-hover">
-          <thead>
-            <tr>
-              <th scope="col">#</th>
-              <th scope="col">ID</th>
-              <th scope="col">Name</th>
-              <th scope="col">Purchase Price</th>
-              <th scope="col">Sale Price</th>
-              <th scope="col">Quantity</th>
-              <th scope="col">Actions</th>
-            </tr>
-          </thead>
-          <tbody id = "addPrd">
-          </tbody>
-        </table>
-        <div class="media text-muted pt-3">
-         <p id = "loadingM" style="text-align: center;">Loading...</p>
-         </div>
          <p id = "editing"></p>
          <form id ="editForm">
           <div class="form-row">
             <div class="col">
-              <input id="eID" type="text" class="form-control" placeholder="Enter Price" value="ID" readonly>
+              <input id="eID" type="text" class="form-control" placeholder="ID">
             </div>
             <div class="col">
-              <input id="eName" type="text" class="form-control" placeholder="Last name" value="Name">
+              <input id="eName" type="text" class="form-control" placeholder="Name">
             </div>
             <div class="col">
-              <input id="ePurPrice" type="text" class="form-control" placeholder="Last name" value="Purchase Price">
+              <input id="ePurPrice" type="text" class="form-control" placeholder="Purchase Price" >
             </div>
             <div class="col">
-              <input id="eSalePrice" type="text" class="form-control" placeholder="Last name" value="Sale Price">
+              <input id="eSalePrice" type="text" class="form-control" placeholder="Sale Price" ">
             </div>
             <div class="col">
-              <input id="eQty" type="text" class="form-control" placeholder="Last name" value="Quantity">
+              <input id="eQty" type="text" class="form-control" placeholder="Quantity">
             </div>
           </div>
           <br>
-          <button type="submit" class="btn btn-primary" onclick="updateValues()">Update</button>
+          <button type="submit" class="btn btn-primary" onclick="addValues();">Add</button>
         </form>
       </div>
 

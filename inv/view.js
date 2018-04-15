@@ -33,12 +33,13 @@
   		}
 
   		if(obj.qty!=null){
-  			output += '<td>' + obj.qty.value+ '</td>';
+  			output += '<td>' + obj.qty+ '</td>';
   		}else{
   			output += '<td>N/A</td>';
   		}
-  		output += '<td><a style = "font-size: 12px" href=\"#\" onClick=\"editItem(\''+ data.key +'\')\">edit</a> | <a style = "font-size: 12px; color:red" href=\"\">delete</a> </td>';
+  		output += '<td><a style = "font-size: 12px" href=\"#\" onClick=\"editItem(\''+ data.key +'\')\">edit</a> | <a style = "font-size: 12px; color:red" href=\"\">delete</a> </td></tr>';
   		document.getElementById("addPrd").innerHTML += output;
+
 	  	console.log(output);
 	  	count++;
         });
@@ -47,6 +48,37 @@
 
 
 function editItem(key){
+	window.scrollTo(0,document.body.scrollHeight);
+	firebase.database().ref('server/products/' + key).once('value').then(function(snapshot) {
+	  	var dis = '';
+		document.getElementById("newStyle").innerHTML = '<style>#editForm{display: block;}</style>';
+		dis = '<strong>Edit ' + key + ':</strong>'
+		dis += '<form><div class="form-row">';
+		document.getElementById("editing").innerHTML = dis;
+		document.getElementById("eName").value = snapshot.val().name;
+		document.getElementById("eQty").value = snapshot.val().qty;
+		document.getElementById("eSalePrice").value = snapshot.val().price;
+		document.getElementById("ePurPrice").value = snapshot.val().purPrice;
+		document.getElementById("eID").value = key;
+	});
+
+
 	console.log(key);
 	return;
 }
+
+function updateValues(){
+	var key =  document.getElementById("eID").value;
+	var	nname = document.getElementById("eName").value;
+	var nqty =	document.getElementById("eQty").value;
+	var nsalePrice = 	document.getElementById("eSalePrice").value;
+	var npurPrice =	document.getElementById("ePurPrice").value;
+	firebase.database().ref('server/products/' + key)
+        .update({ 
+        	name: nname, 
+        	price: nsalePrice,
+        	purPrice: npurPrice,
+        	qty: nqty
+        });
+}
+
