@@ -37,7 +37,7 @@
   		}else{
   			output += '<td>N/A</td>';
   		}
-  		output += '<td><a style = "font-size: 12px" href=\"#\" onClick=\"editItem(\''+ data.key +'\')\">edit</a> | <a style = "font-size: 12px; color:red" href=\"\">delete</a> </td></tr>';
+  		output += '<td><a style = "font-size: 12px" href=\"#\" onClick=\"editItem(\''+ data.key +'\')\">edit</a> | <a style = "font-size: 12px; color:red" href=\"\" onClick=\"deleteItem(\''+ data.key +'\')\">delete</a> </td></tr>';
   		document.getElementById("addPrd").innerHTML += output;
 
 	  	console.log(output);
@@ -82,3 +82,7 @@ function updateValues(){
         });
 }
 
+
+function deleteItem(key){
+  firebase.database().ref('server/products/' + key).remove();
+}
