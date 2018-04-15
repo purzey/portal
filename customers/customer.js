@@ -36,7 +36,7 @@
 	    		output += obj.dp.value;
 	    	}
 	    	output += '\" alt=\"\" class=\"mr-2 rounded\" width=\"80\" height=\"80\">';
-	    	output += '<p class=\"media-body pb-3 mb-0 small lh-125 border-bottom border-gray\"><strong class=\"d-block text-gray-dark\">';
+	    	output += '<p class=\"media-body pb-3 mb-0 small lh-125 border-bottom border-gray\"><strong class=\"d-block text-gray-dark\" style=\"font-size:15px\">';
 	    	if(obj.Name !=null){
 	    		output += obj.Name.value;
 	    	}
